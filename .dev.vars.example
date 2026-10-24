@@ -1,0 +1,7 @@
+# The Deploy to Cloudflare button prompts for exactly the names listed here.
+# Everything else (WhatsApp connection, staff, settings) is entered in the app at /setup and Settings.
+
+# Signs sessions and encrypts the saved WhatsApp connection. Also the one-time key you type on /setup.
+# 32+ random characters, for example:  openssl rand -hex 32
+# Keep a copy: changing it later makes the saved WhatsApp connection unreadable until it is saved again.
+SESSION_SECRET=

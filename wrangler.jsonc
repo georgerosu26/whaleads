@@ -1,0 +1,45 @@
+{
+  // The generic template, and the file the "Deploy to Cloudflare" button reads.
+  // It must stay free of anything account-specific: no account_id, no routes, no database_id.
+  // `npm run lint:template` enforces that. Your own custom domain is a post-deploy step (docs/DEPLOY.md).
+  // Secrets are never in this file. The button prompts for what .dev.vars.example lists (SESSION_SECRET only);
+  // everything else is entered in /setup or Settings and stored encrypted in D1.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "whaleads",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-03-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  // Smart Placement is the default for a self-hoster whose D1 region is unknown: Cloudflare moves the Worker
+  // next to its backend (D1, WhaBuzz, Meta) based on observed latency. When you know the D1 region you can pin
+  // the Worker there instead with  "placement": { "region": "aws:ap-south-1" }  (see docs/DEPLOY.md).
+  "placement": { "mode": "smart" },
+  // No database_id: the button and `wrangler deploy` create the database and fill in the id.
+  "d1_databases": [{ "binding": "DB", "database_name": "whaleads-db","database_id": "ce202ea7-1a87-4c0c-a656-6d3a16b71fc8" }],
+  "vars": {
+    "INSTANCE_NAME": "WhaLeads",
+    // Website-form origins are set in the app (Settings, Lead forms). Do not add ALLOWED_ORIGINS here:
+    // the Deploy button asks the deployer to fill every empty var, and this one has no sensible value before setup.
+    // The one-click "Connect with WhaBuzz" button (Settings, WhatsApp). Set it to "" to hide the button and enter keys by hand.
+    "WHABUZZ_CONNECT_BASE": "https://app.whabuzz.com"
+  },
+  // Message media. Optional: delete this block on an account without R2 and media is proxied live from Meta instead.
+  "r2_buckets": [{ "binding": "MEDIA", "bucket_name": "whaleads-media","preview_bucket_name": "whaleads-media" }],
+  // Every minute. The flow engine ticks on every firing; the 15-minute jobs (media retries, purge, template sync, send-record
+  // repair, dead push subscriptions) run only on minutes divisible by 15 (src/cron.ts). Cron triggers are UTC.
+  "triggers": { "crons": ["* * * * *"] },
+  // The SPA (ui/, built by `npm run build` into dist/). Only /api/* and /webhooks/* hit the Worker first;
+  // everything else is a static file or falls back to index.html.
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*", "/webhooks/*"]
+  },
+  // D20 live channel: ONE SQLite-backed Durable Object per instance (allowed on the Workers Free plan, D11 amended).
+  // It only fans events out to open WebSockets and stores nothing. Remove both blocks and the inbox simply keeps polling.
+  "durable_objects": { "bindings": [{ "name": "LIVE", "class_name": "LiveHub" }] },
+  "migrations": [{ "tag": "v1-live", "new_sqlite_classes": ["LiveHub"] }],
+  "build": { "command": "npm run build" },
+  "observability": { "enabled": true }
+}

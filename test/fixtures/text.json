@@ -1,0 +1,41 @@
+{
+  "object": "whatsapp_business_account",
+  "entry": [
+    {
+      "id": "10000000000000002",
+      "changes": [
+        {
+          "value": {
+            "messaging_product": "whatsapp",
+            "metadata": {
+              "display_phone_number": "15550100100",
+              "phone_number_id": "1000000000000001"
+            },
+            "contacts": [
+              {
+                "profile": {
+                  "name": "Kerry Fisher"
+                },
+                "wa_id": "16505550123",
+                "user_id": "US.10000000000000000001"
+              }
+            ],
+            "messages": [
+              {
+                "from": "16505550123",
+                "from_user_id": "US.10000000000000000001",
+                "id": "wamid.HBgLMTY1MDU1NTAxMjMVAgASGBQzQUY5QTdGNkU0RTFGMkI3QzFB01AA=",
+                "timestamp": "1760591523",
+                "type": "text",
+                "text": {
+                  "body": "Hi, is the 7am batch open tomorrow?"
+                }
+              }
+            ]
+          },
+          "field": "messages"
+        }
+      ]
+    }
+  ]
+}

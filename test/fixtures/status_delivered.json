@@ -1,0 +1,51 @@
+{
+  "object": "whatsapp_business_account",
+  "entry": [
+    {
+      "id": "10000000000000002",
+      "changes": [
+        {
+          "value": {
+            "messaging_product": "whatsapp",
+            "metadata": {
+              "display_phone_number": "15550100100",
+              "phone_number_id": "1000000000000001"
+            },
+            "contacts": [
+              {
+                "profile": {
+                  "name": "Kerry Fisher"
+                },
+                "wa_id": "16505550123",
+                "user_id": "US.10000000000000000001"
+              }
+            ],
+            "statuses": [
+              {
+                "id": "wamid.HBgLMTY1MDU1NTAxMjMVAgASGBQzQUY5QTdGNkU0RTFGMkI3QzFB41AA=",
+                "status": "delivered",
+                "timestamp": "1760591523",
+                "recipient_id": "16505550123",
+                "recipient_user_id": "US.10000000000000000001",
+                "conversation": {
+                  "id": "0123456789abcdef0123456789abcdef",
+                  "expiration_timestamp": "1760677923",
+                  "origin": {
+                    "type": "marketing"
+                  }
+                },
+                "pricing": {
+                  "billable": true,
+                  "pricing_model": "PMP",
+                  "category": "marketing",
+                  "type": "regular"
+                }
+              }
+            ]
+          },
+          "field": "messages"
+        }
+      ]
+    }
+  ]
+}

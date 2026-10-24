@@ -1,0 +1,21 @@
+{
+  "object": "whatsapp_business_account",
+  "entry": [
+    {
+      "id": "10000000000000002",
+      "changes": [
+        {
+          "value": {
+            "event": "APPROVED",
+            "message_template_id": 1000000000000004,
+            "message_template_name": "renewal_reminder",
+            "message_template_language": "en",
+            "reason": "NONE",
+            "message_template_category": "UTILITY"
+          },
+          "field": "message_template_status_update"
+        }
+      ]
+    }
+  ]
+}

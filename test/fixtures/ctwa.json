@@ -1,0 +1,51 @@
+{
+  "object": "whatsapp_business_account",
+  "entry": [
+    {
+      "id": "10000000000000002",
+      "changes": [
+        {
+          "value": {
+            "messaging_product": "whatsapp",
+            "metadata": {
+              "display_phone_number": "15550100100",
+              "phone_number_id": "1000000000000001"
+            },
+            "contacts": [
+              {
+                "profile": {
+                  "name": "Ad Clicker"
+                },
+                "wa_id": "15550000077",
+                "user_id": "US.10000000000000000001"
+              }
+            ],
+            "messages": [
+              {
+                "from": "15550000077",
+                "from_user_id": "US.10000000000000000001",
+                "id": "wamid.CTWA0001",
+                "timestamp": "1760591523",
+                "type": "text",
+                "text": {
+                  "body": "Hi, is this still available?"
+                },
+                "referral": {
+                  "source_url": "https://example.com/ads/spring-sale",
+                  "source_id": "120210000000001",
+                  "source_type": "ad",
+                  "headline": "Spring sale",
+                  "body": "Chat with us",
+                  "media_type": "image",
+                  "image_url": "https://example.com/ad.jpg",
+                  "ctwa_clid": "AfZexample_clid_0001"
+                }
+              }
+            ]
+          },
+          "field": "messages"
+        }
+      ]
+    }
+  ]
+}

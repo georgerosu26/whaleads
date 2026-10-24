@@ -1,0 +1,32 @@
+name: Feature request
+description: Suggest a change or an addition
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        WhaLeads is one WhatsApp number, one team, self-hosted. Broadcasts, several numbers per deployment, email and voice are out of scope.
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What are you trying to do that you cannot do today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you would like
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - label: This fits one number, one team, one deployment.
+          required: true

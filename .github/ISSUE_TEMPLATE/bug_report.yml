@@ -1,0 +1,41 @@
+name: Bug report
+description: Something does not work as documented
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include real phone numbers, customer messages, API keys or account ids. Use fake values.
+        Security problems: do not file them here, see SECURITY.md.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: And what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: "1. ...\n2. ...\n3. ..."
+    validations:
+      required: true
+  - type: dropdown
+    id: adaptor
+    attributes:
+      label: WhatsApp adaptor
+      options: [WhaBuzz, Meta Cloud API, Not connected / not relevant]
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      description: The `schema_version` from `/api/health`, or the commit you deployed.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots
+      description: Redact anything that identifies a person or a business.
+      render: shell

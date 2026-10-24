@@ -1,0 +1,48 @@
+{
+  "object": "whatsapp_business_account",
+  "entry": [
+    {
+      "id": "10000000000000002",
+      "changes": [
+        {
+          "value": {
+            "messaging_product": "whatsapp",
+            "metadata": {
+              "display_phone_number": "15550100100",
+              "phone_number_id": "1000000000000001"
+            },
+            "contacts": [
+              {
+                "profile": {
+                  "name": "Kerry Fisher"
+                },
+                "wa_id": "16505550123",
+                "user_id": "US.10000000000000000001"
+              }
+            ],
+            "statuses": [
+              {
+                "id": "wamid.HBgLMTY1MDU1NTAxMjMVAgASGBQzQUY5QTdGNkU0RTFGMkI3QzFB44AA=",
+                "status": "failed",
+                "timestamp": "1760591523",
+                "recipient_id": "16505550123",
+                "recipient_user_id": "US.10000000000000000001",
+                "errors": [
+                  {
+                    "code": 131030,
+                    "title": "Recipient phone number not in allowed list",
+                    "message": "Recipient phone number not in allowed list",
+                    "error_data": {
+                      "details": "Recipient phone number not in allowed list: Add recipient phone number to recipient list and try again."
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "field": "messages"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+# gitleaks config for the publish gate (scripts/publish-public.sh) and local scans.
+# Only obviously fake test fixtures are allow-listed; every real-looking key must fail the scan.
+title = "whaleads"
+[extend]
+useDefault = true
+[allowlist]
+description = "Test fixtures: keys that contain _TEST_ are never real"
+regexes = ['''(wbk|wb_live|wb_test|whsec)_TEST_[A-Za-z0-9]+''']

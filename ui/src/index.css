@@ -1,0 +1,37 @@
+@import '@fontsource-variable/manrope';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 25% 96%;
+    --surface: 40 30% 99%;
+    --foreground: 226 45% 14%;
+    --muted: 38 18% 91%;
+    --muted-foreground: 226 12% 40%;
+    --border: 38 14% 84%;
+    --accent: 12 85% 52%;
+    --accent-foreground: 0 0% 100%;
+    --danger: 0 68% 42%;
+  }
+  [data-theme='dark'] {
+    --background: 226 35% 9%;
+    --surface: 226 30% 12%;
+    --foreground: 40 25% 94%;
+    --muted: 226 25% 17%;
+    --muted-foreground: 226 12% 65%;
+    --border: 226 20% 22%;
+    --accent: 12 85% 60%;
+    --accent-foreground: 226 45% 10%;
+    --danger: 0 75% 65%;
+  }
+  html, body, #root { height: 100%; }
+  body { @apply bg-background text-foreground font-sans text-sm antialiased; font-variant-numeric: tabular-nums; }
+  * { @apply border-border; }
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+}
+
+/* chart series (validated with the dataviz palette script, light and dark) */
+:root { --series-1: #2a78d6; --series-2: #eb6834; }
+[data-theme='dark'] { --series-1: #3987e5; --series-2: #d95926; }
